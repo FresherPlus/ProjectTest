@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:security="http://www.springframework.org/schema/security"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:util="http://www.springframework.org/schema/util"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+ http://www.springframework.org/schema/util
+ http://www.springframework.org/schema/util/spring-util.xsd
+ http://www.springframework.org/schema/security
+ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+ 
+
+ <context:annotation-config/>
+ 
+<!--  stand alone list -->
+ <util:list list-class="java.util.LinkedList" id = "friendslist">
+	 <value>Pramod</value>
+	 <value>Negi</value>
+	 <value>Rana</value>
+ 
+ </util:list>
+<!--  Vector -->
+  <util:list list-class="java.util.Vector" id = "friendslist1">
+	 <value>Pramod</value>
+	 <value>Negi</value>
+	 <value>Rana1</value>
+ 
+ </util:list>
+ <!--  standalone Map -->
+ <util:map map-class="java.util.HashMap" id="fees">
+ <entry key="Course1" value = "1000"/>
+ <entry key="Course2" value = "2000"/>
+ <entry key="Course3" value = "3000"/>
+ </util:map>
+ 
+ <!--  standalone Prop -->
+ <util:properties id="dbconfig">
+ <prop key="driver">com.mysql.jdbc.driver</prop>
+ <prop key="username">sysadmin123</prop>
+ <prop key="password">pass@123</prop>
+ <prop key="url">cmysql:jdbc://localhost:3306/database</prop>
+ 
+ </util:properties>
+ 
+ 
+ 
+ <bean class ="com.springcore.standalone.collection.Person" name="person1">
+ <property name="friends" ref="friendslist1"></property>
+ <property name="feestructure" ref="fees"></property>
+ <property name="props" ref="dbconfig"></property>
+ </bean>
+
+ 
+ </beans>
