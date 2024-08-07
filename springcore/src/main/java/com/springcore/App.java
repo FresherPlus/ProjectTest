@@ -12,7 +12,7 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 		student student1 = (student) context.getBean("student1");
 		System.out.println(student1);
-		
+		System.out.println("Hello Just for Git");
 	}
 
 }
